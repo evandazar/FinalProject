@@ -145,9 +145,9 @@ public class Main {
         age + "\n");
 
         //Displays the users responses
-         for (String questions : question)
+         for (String responses : response)
         {
-             System.out.println(questions);
+             System.out.println(responses);
         }
     }
 }
