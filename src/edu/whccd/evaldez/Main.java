@@ -84,7 +84,6 @@ public class Main {
     ArrayList<String>response = new ArrayList<String>();
     boolean genderValidate = false;
     Scanner sc = new Scanner(System.in);
-    //Scanner sc2 = new Scanner(System.in);
 
     //add in the questions to the ArrayList
     question.add("What did you do this morning? ");
