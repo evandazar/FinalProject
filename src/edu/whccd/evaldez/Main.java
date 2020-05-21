@@ -18,6 +18,19 @@ import java.util.Scanner;
 
 public class Main {
 
+    //Validate the response.
+    static String responseValid(String question)
+    {
+        String response = "";
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println(question);
+            response = sc.nextLine();
+        } while (response == "");
+        return response;
+    }
+
+    //reformat the gender variable from "m", "f", and "o" to "male", "female", and "others"
     static String genderReformat(String gender)
     {
        String genderFormat = "";
@@ -66,10 +79,24 @@ public class Main {
     String genderExpand = "";
     Integer birthYear = 0;
     Integer age = 0;
+    ArrayList<String>question = new ArrayList<String>();
+    ArrayList<String>response = new ArrayList<String>();
     boolean genderValidate = false;
-    String[] questions = new String[10];
+    //String[] questions = new String[10];
     Scanner sc = new Scanner(System.in);
     Scanner sc2 = new Scanner(System.in);
+
+    //add in the questions to the ArrayList
+    question.add("What did you do this morning? ");
+    question.add("What did you have for breakfast? ");
+    question.add("What kind of car do you drive? ");
+    question.add("How was your afternoon? ");
+    question.add("What did you have for lunch? ");
+    question.add("Where do you live? ");
+    question.add("What did you eat for dinner? ");
+    question.add("Do you get enough sleep? ");
+    question.add("What is your routine before you go to bed? ");
+    question.add("How was your day? ");
 
     //Get information on the user
         while (firstName == "")
@@ -104,75 +131,12 @@ public class Main {
         } while (!genderValidate);
 
     //Ask the user some questions
-        do
+        for (String questionCheck: question)
         {
-            System.out.print("What did you do this morning? ");
-            questions[0] = sc2.nextLine();
+            response.add(responseValid(questionCheck));
         }
-        while(questions[0]=="");
 
-        do
-        {
-            System.out.print("What did you have for breakfast? ");
-            questions[1] = sc2.nextLine();
-        }while (questions[1] == "");
-
-        do
-        {
-            System.out.print("What kind of car do you drive? ");
-            questions[2] = sc2.nextLine();
-        }
-        while (questions[2] == "");
-
-        do
-        {
-            System.out.print("How was your afternoon? ");
-            questions[3] = sc2.nextLine();
-        }
-        while (questions[3] == "");
-
-        do
-        {
-            System.out.print("What did you have for lunch? ");
-            questions[4] = sc2.nextLine();
-        }
-        while (questions[4] == "");
-
-        do
-        {
-            System.out.print("Where do you live? ");
-            questions[5] = sc2.nextLine();
-        }
-        while (questions[5] == "");
-
-        do
-        {
-            System.out.print("What did you eat for dinner? ");
-            questions[6] = sc2.nextLine();
-        }
-        while (questions[6] == "");
-
-        do
-        {
-            System.out.print("Do you get enough sleep? ");
-            questions[7] = sc2.nextLine();
-        }
-        while (questions[7] == "");
-
-        do
-        {
-            System.out.print("What is your routine before you go to bed? ");
-            questions[8] = sc2.nextLine();
-        }
-        while (questions[8] == "");
-
-        do
-        {
-            System.out.print("How was your day? ");
-            questions[9] = sc2.nextLine();
-        }
-        while (questions[9] == "");
-
+        //Display the users info
         age = subYear(birthYear, age);
         genderExpand = genderReformat(gender);
         System.out.print(
@@ -180,9 +144,10 @@ public class Main {
         genderExpand + "\n" +
         age + "\n");
 
-        for ( int i = 0; i <= questions.length-1; i++)
+        //Displays the users responses
+         for (String questions : question)
         {
-            System.out.println(questions[i]);
+             System.out.println(questions);
         }
     }
 }
