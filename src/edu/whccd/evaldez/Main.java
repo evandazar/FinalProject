@@ -79,12 +79,12 @@ public class Main {
     String genderExpand = "";
     Integer birthYear = 0;
     Integer age = 0;
+    int count = 1;
     ArrayList<String>question = new ArrayList<String>();
     ArrayList<String>response = new ArrayList<String>();
     boolean genderValidate = false;
-    //String[] questions = new String[10];
     Scanner sc = new Scanner(System.in);
-    Scanner sc2 = new Scanner(System.in);
+    //Scanner sc2 = new Scanner(System.in);
 
     //add in the questions to the ArrayList
     question.add("What did you do this morning? ");
@@ -140,14 +140,20 @@ public class Main {
         age = subYear(birthYear, age);
         genderExpand = genderReformat(gender);
         System.out.print(
-        firstName + " " + lastName + "\n" +
-        genderExpand + "\n" +
-        age + "\n");
+        "Name: " + firstName + " " + lastName + "\n" +
+        "gender: " + genderExpand + "\n" +
+        "age: " + age + "\n");
 
         //Displays the users responses
-         for (String responses : response)
+         /*for (String responses : response)
         {
              System.out.println(responses);
+        }*/
+        for (int i = 0; i < question.size(); i++)
+        {
+            System.out.println(count + ". " + question.get(i));
+            System.out.println(response.get(i));
+            count++;
         }
     }
 }
